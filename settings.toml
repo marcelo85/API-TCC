@@ -2,6 +2,15 @@
 SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
 TITLE = 'TITLE'
 SECRET_KEY = 'ElFrangolino'
+EXTENSIONS = [
+"aplicacao.ext.appearance",
+"aplicacao.ext.database",
+"aplicacao.ext.auth",
+"aplicacao.ext.admin",
+"aplicacao.ext.commands",
+"aplicacao.blueprints.views",
+"aplicacao.blueprints.restapi"
+]
 
 [production]
 SQLALCHEMY_DATABASE_URI = 'postgres:///...'
