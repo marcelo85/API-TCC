@@ -1,7 +1,7 @@
-from flask_simplelogin import SimpleLogin, login_required
+from flask_simplelogin import SimpleLogin
 from werkzeug.security import check_password_hash, generate_password_hash
 from aplicacao.ext.database import db
-from aplicacao.models import User
+from aplicacao.models import Usuario
 
 
 def verifica_login(user):
@@ -11,7 +11,7 @@ def verifica_login(user):
 
     if not usuario or not senha:
         return False
-    usuario_existe = User.query.filter_by(username=usuario).first()
+    usuario_existe = Usuario.query.filter_by(usuario=usuario).first()
     if not usuario_existe:
         return False
     if check_password_hash(usuario_existe.password, senha):
@@ -19,14 +19,14 @@ def verifica_login(user):
     return False
 
 
-def cria_usuario(username, password):
-    """Cria um usuário"""
-    if User.query.filter_by(username=username).first():
-        raise RuntimeError(f'{username} já está cadastrado')
-    user = User(username=username, password=generate_password_hash(password))
-    db.session.add(user)
+def cria_usuario(usuario, senha):
+    """Registra um novo usuario caso nao esteja cadastrado"""
+    if Usuario.query.filter_by(usuario=usuario).first():
+        raise RuntimeError(f'{usuario} ja esta cadastrado')
+    usuario = Usuario(usuario=usuario, senha=generate_password_hash(senha))
+    db.session.add(usuario)
     db.session.commit()
-    return user
+    return usuario
 
 
 def init_app(app):

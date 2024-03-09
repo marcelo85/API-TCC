@@ -5,16 +5,15 @@ from aplicacao.ext import database
 from aplicacao.ext import auth
 from aplicacao.ext import admin
 from aplicacao.ext import commands
-from aplicacao import models
 
 app = Flask(__name__)
 
-configuration.init_app()
-appearance.init_app()
-database.init_app()
-auth.init_app()
-admin.init_app()
-commands.init_app()
+configuration.init_app(app)
+appearance.init_app(app)
+database.init_app(app)
+auth.init_app(app)
+admin.init_app(app)
+commands.init_app(app)
 
 
 
