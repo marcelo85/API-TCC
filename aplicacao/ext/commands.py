@@ -1,7 +1,7 @@
 import click
 from aplicacao.ext.database import db
 from aplicacao.ext.auth import cria_usuario
-from aplicacao.models import Animal
+from aplicacao.models import Animais
 
 
 def create_db():
@@ -17,15 +17,15 @@ def drop_db():
 def populate_db():
     """Populate db with sample data"""
     data = [
-        Animal(
+        Animais(
             id=1, nome_cientifico="Canis latrans", nome_popular="Coiote", descricao="Coiote do deserto americano"
         ),
-        Animal(id=2, nome_cientifico="Canis latrans", nome_popular="Coiote", descricao="Coiote da neve"),
-        Animal(id=3, nome_cientifico="Canis latrans", nome_popular="Coiote", descricao="Coiote do pantano"),
+        Animais(id=2, nome_cientifico="Canis latrans", nome_popular="Coiote", descricao="Coiote da neve"),
+        Animais(id=3, nome_cientifico="Canis latrans", nome_popular="Coiote", descricao="Coiote do pantano"),
     ]
     db.session.bulk_save_objects(data)
     db.session.commit()
-    return Animal.query.all()
+    return Animais.query.all()
 
 
 def init_app(app):
