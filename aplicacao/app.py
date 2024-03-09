@@ -15,7 +15,6 @@ database.init_app()
 auth.init_app()
 admin.init_app()
 commands.init_app()
-models.init_app()
 
 
 
