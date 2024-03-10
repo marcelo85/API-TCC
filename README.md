@@ -1,2 +1,2 @@
 # API-TCC
-Api rest do TCC soobre identificação de animais.
+Api rest do TCC sobre identificação de animais.
