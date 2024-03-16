@@ -1,4 +1,6 @@
 import click
+
+from aplicacao import app
 from aplicacao.ext.database import db
 from aplicacao.ext.auth import cria_usuario
 from aplicacao.models import Animais

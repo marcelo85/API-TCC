@@ -12,4 +12,3 @@ def create_app():
     app = minimal_app()
     configuration.load_extensions(app)
     return app
-
